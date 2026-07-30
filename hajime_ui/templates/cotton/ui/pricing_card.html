@@ -1,55 +1,57 @@
 <c-vars title="" price="" period="" description="" featured="false" class="" />
 
-<div class="relative rounded-2xl p-8 flex flex-col
-            transition-all duration-300
+<div class="relative rounded-3xl p-8 sm:p-10 flex flex-col justify-between
+            transition-all duration-300 transform hover:-translate-y-2
             {% if featured == 'true' %}
-              bg-gray-900 text-white shadow-2xl scale-105 border-2 border-gray-800
+              bg-sumi text-white shadow-2xl ring-2 ring-vermillon/80
             {% else %}
-              bg-white text-gray-900 border border-gray-200 hover:shadow-xl hover:-translate-y-1
+              bg-white/90 text-stone-900 border border-stone-200/80 shadow-sm hover:shadow-xl
             {% endif %}
             {{ class }}"
      {{ attrs }}>
 
   {% if featured == 'true' %}
     <div class="absolute -top-4 left-1/2 -translate-x-1/2">
-      <span class="inline-block px-4 py-1 text-xs font-semibold bg-orange-500 text-white rounded-full shadow-lg">
-        ★ Populaire
+      <span class="inline-flex items-center gap-1 px-4 py-1 text-xs font-bold bg-gradient-to-r from-vermillon to-vermillon-dark text-white rounded-full shadow-md tracking-wider uppercase">
+        ★ Plus populaire
       </span>
     </div>
   {% endif %}
 
-  <div class="mb-6">
-    {% if title %}
-      <h3 class="text-xl font-bold mb-2">{{ title }}</h3>
-    {% endif %}
-    {% if description %}
-      <p class="text-sm {% if featured == 'true' %}text-gray-400{% else %}text-gray-500{% endif %}">
-        {{ description }}
-      </p>
+  <div>
+    <div class="mb-6">
+      {% if title %}
+        <h3 class="text-2xl font-bold tracking-tight mb-2">{{ title }}</h3>
+      {% endif %}
+      {% if description %}
+        <p class="text-sm leading-relaxed {% if featured == 'true' %}text-stone-300{% else %}text-stone-500{% endif %}">
+          {{ description }}
+        </p>
+      {% endif %}
+    </div>
+
+    <div class="mb-8 pb-8 border-b {% if featured == 'true' %}border-stone-800{% else %}border-stone-100{% endif %}">
+      {% if price %}
+        <div class="flex items-baseline gap-1.5">
+          <span class="text-5xl font-extrabold tracking-tight">{{ price }}</span>
+          {% if period %}
+            <span class="text-sm font-medium {% if featured == 'true' %}text-stone-400{% else %}text-stone-500{% endif %}">
+              / {{ period }}
+            </span>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    {% if features %}
+      <ul class="space-y-4 mb-10">
+        {{ features }}
+      </ul>
     {% endif %}
   </div>
-
-  <div class="mb-8">
-    {% if price %}
-      <div class="flex items-baseline gap-1">
-        <span class="text-4xl font-extrabold tracking-tight">{{ price }}</span>
-        {% if period %}
-          <span class="text-sm {% if featured == 'true' %}text-gray-400{% else %}text-gray-500{% endif %}">
-            / {{ period }}
-          </span>
-        {% endif %}
-      </div>
-    {% endif %}
-  </div>
-
-  {% if features %}
-    <ul class="space-y-3 mb-8 flex-1">
-      {{ features }}
-    </ul>
-  {% endif %}
 
   {% if cta %}
-    <div class="mt-auto">
+    <div class="pt-4">
       {{ cta }}
     </div>
   {% endif %}

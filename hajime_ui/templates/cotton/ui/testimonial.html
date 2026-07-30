@@ -1,37 +1,39 @@
 <c-vars quote="" author="" role="" avatar_url="" class="" />
 
-<div class="bg-white rounded-2xl p-8 border border-gray-100
-            hover:shadow-lg transition-shadow duration-300 {{ class }}"
+<div class="bg-white/90 rounded-3xl p-8 border border-stone-200/70 shadow-xs
+            hover:shadow-lg transition-all duration-300 flex flex-col justify-between {{ class }}"
      {{ attrs }}>
 
-  <!-- Quote mark -->
-  <div class="text-4xl text-gray-200 font-serif leading-none mb-4 select-none">"</div>
+  <div>
+    <!-- Decorative Quote Icon -->
+    <div class="text-5xl text-vermillon/20 font-display leading-none mb-4 select-none">“</div>
 
-  {% if quote %}
-    <blockquote class="text-gray-700 leading-relaxed mb-6">
-      {{ quote }}
-    </blockquote>
-  {% elif slot %}
-    <blockquote class="text-gray-700 leading-relaxed mb-6">
-      {{ slot }}
-    </blockquote>
-  {% endif %}
+    {% if quote %}
+      <p class="text-stone-700 text-base leading-relaxed italic mb-8">
+        {{ quote }}
+      </p>
+    {% elif slot %}
+      <div class="text-stone-700 text-base leading-relaxed italic mb-8">
+        {{ slot }}
+      </div>
+    {% endif %}
+  </div>
 
-  <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+  <div class="flex items-center gap-4 pt-6 border-t border-stone-100">
     {% if avatar_url %}
       <img src="{{ avatar_url }}" alt="{{ author }}"
-           class="w-10 h-10 rounded-full object-cover" />
+           class="w-12 h-12 rounded-full object-cover ring-2 ring-vermillon/20" />
     {% else %}
-      <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 text-sm font-semibold">
+      <div class="w-12 h-12 rounded-full bg-vermillon/10 text-vermillon flex items-center justify-center text-sm font-bold">
         {{ author|truncatechars:2 }}
       </div>
     {% endif %}
     <div>
       {% if author %}
-        <p class="font-semibold text-sm text-gray-900">{{ author }}</p>
+        <p class="font-bold text-sm text-stone-900">{{ author }}</p>
       {% endif %}
       {% if role %}
-        <p class="text-xs text-gray-500">{{ role }}</p>
+        <p class="text-xs font-medium text-stone-500">{{ role }}</p>
       {% endif %}
     </div>
   </div>

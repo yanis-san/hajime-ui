@@ -2,30 +2,30 @@
 
 {% if href %}
 <a href="{{ href }}"
-   class="inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer
-          {% if size == 'sm' %}px-3 py-1.5 text-xs
-          {% elif size == 'lg' %}px-6 py-3 text-base
-          {% else %}px-4 py-2.5 text-sm{% endif %}
-          {% if variant == 'primary' %}bg-orange-500 text-white hover:bg-orange-600 focus:ring-orange-400 shadow-sm hover:shadow-md
-          {% elif variant == 'secondary' %}bg-gray-900 text-white hover:bg-gray-700 focus:ring-gray-500 shadow-sm
-          {% elif variant == 'outline' %}border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-gray-300
-          {% elif variant == 'danger' %}bg-red-500 text-white hover:bg-red-600 focus:ring-red-400 shadow-sm
-          {% elif variant == 'ghost' %}text-gray-600 hover:bg-gray-100 focus:ring-gray-300{% endif %}
+   class="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer
+          {% if size == 'sm' %}px-4 py-2 text-xs
+          {% elif size == 'lg' %}px-8 py-4 text-base tracking-wide
+          {% else %}px-6 py-3 text-sm{% endif %}
+          {% if variant == 'primary' %}bg-gradient-to-r from-vermillon to-vermillon-dark text-white hover:shadow-lg hover:shadow-vermillon/25 focus:ring-vermillon hover:-translate-y-0.5
+          {% elif variant == 'secondary' %}bg-sumi text-white hover:bg-stone-800 focus:ring-stone-700 shadow-sm hover:shadow-md
+          {% elif variant == 'outline' %}border-2 border-stone-300 text-stone-800 bg-white/80 hover:bg-white hover:border-vermillon hover:text-vermillon focus:ring-stone-300
+          {% elif variant == 'danger' %}bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-sm
+          {% elif variant == 'ghost' %}text-stone-700 hover:bg-stone-200/50 hover:text-vermillon focus:ring-stone-300{% endif %}
           {% if disabled == 'true' %}opacity-50 cursor-not-allowed pointer-events-none{% endif %}
           {{ class }}"
    {{ attrs }}>{{ slot }}</a>
 {% else %}
 <button type="{{ type }}"
         {% if disabled == 'true' %}disabled{% endif %}
-        class="inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer
-               {% if size == 'sm' %}px-3 py-1.5 text-xs
-               {% elif size == 'lg' %}px-6 py-3 text-base
-               {% else %}px-4 py-2.5 text-sm{% endif %}
-               {% if variant == 'primary' %}bg-orange-500 text-white hover:bg-orange-600 focus:ring-orange-400 shadow-sm hover:shadow-md
-               {% elif variant == 'secondary' %}bg-gray-900 text-white hover:bg-gray-700 focus:ring-gray-500 shadow-sm
-               {% elif variant == 'outline' %}border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-gray-300
-               {% elif variant == 'danger' %}bg-red-500 text-white hover:bg-red-600 focus:ring-red-400 shadow-sm
-               {% elif variant == 'ghost' %}text-gray-600 hover:bg-gray-100 focus:ring-gray-300{% endif %}
+        class="inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer
+               {% if size == 'sm' %}px-4 py-2 text-xs
+               {% elif size == 'lg' %}px-8 py-4 text-base tracking-wide
+               {% else %}px-6 py-3 text-sm{% endif %}
+               {% if variant == 'primary' %}bg-gradient-to-r from-vermillon to-vermillon-dark text-white hover:shadow-lg hover:shadow-vermillon/25 focus:ring-vermillon hover:-translate-y-0.5
+               {% elif variant == 'secondary' %}bg-sumi text-white hover:bg-stone-800 focus:ring-stone-700 shadow-sm hover:shadow-md
+               {% elif variant == 'outline' %}border-2 border-stone-300 text-stone-800 bg-white/80 hover:bg-white hover:border-vermillon hover:text-vermillon focus:ring-stone-300
+               {% elif variant == 'danger' %}bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-sm
+               {% elif variant == 'ghost' %}text-stone-700 hover:bg-stone-200/50 hover:text-vermillon focus:ring-stone-300{% endif %}
                {% if disabled == 'true' %}opacity-50 cursor-not-allowed{% endif %}
                {{ class }}"
         {{ attrs }}>{{ slot }}</button>

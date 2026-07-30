@@ -1,24 +1,31 @@
 <c-vars brand="" copyright="" class="" />
 
-<footer class="border-t border-gray-200 bg-white {{ class }}" {{ attrs }}>
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<footer class="bg-sumi text-stone-300 relative overflow-hidden border-t border-stone-800 {{ class }}" {{ attrs }}>
+  
+  <!-- Subtle Watermark -->
+  <div class="absolute -bottom-10 -right-10 text-[18rem] font-display text-white/[0.02] select-none pointer-events-none leading-none">
+    和
+  </div>
 
-    <!-- Main footer content -->
-    <div class="py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-      <!-- Brand column -->
-      <div class="md:col-span-1">
+    <!-- Main Footer Columns -->
+    <div class="py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
+
+      <!-- Brand Info Column -->
+      <div class="md:col-span-1 space-y-4">
         {% if brand %}
-          <div class="text-lg font-bold text-gray-900 mb-4">{{ brand|safe }}</div>
+          <div class="text-xl font-bold text-white">{{ brand|safe }}</div>
         {% endif %}
+        
         {% if social %}
-          <div class="flex items-center gap-4 mt-4">
+          <div class="flex items-center gap-3 pt-2">
             {{ social }}
           </div>
         {% endif %}
       </div>
 
-      <!-- Link columns -->
+      <!-- Navigation Columns -->
       {% if columns %}
         <div class="md:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
           {{ columns }}
@@ -26,13 +33,13 @@
       {% endif %}
     </div>
 
-    <!-- Bottom bar -->
-    <div class="py-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <!-- Bottom Copyright Bar -->
+    <div class="py-8 border-t border-stone-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400">
       {% if copyright %}
-        <p class="text-sm text-gray-500">{{ copyright }}</p>
+        <p>{{ copyright }}</p>
       {% endif %}
       {% if bottom %}
-        <div class="flex items-center gap-6 text-sm text-gray-500">
+        <div class="flex items-center gap-6">
           {{ bottom }}
         </div>
       {% endif %}
