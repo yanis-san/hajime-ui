@@ -1,0 +1,56 @@
+<c-vars title="" price="" period="" description="" featured="false" class="" />
+
+<div class="relative rounded-2xl p-8 flex flex-col
+            transition-all duration-300
+            {% if featured == 'true' %}
+              bg-gray-900 text-white shadow-2xl scale-105 border-2 border-gray-800
+            {% else %}
+              bg-white text-gray-900 border border-gray-200 hover:shadow-xl hover:-translate-y-1
+            {% endif %}
+            {{ class }}"
+     {{ attrs }}>
+
+  {% if featured == 'true' %}
+    <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+      <span class="inline-block px-4 py-1 text-xs font-semibold bg-orange-500 text-white rounded-full shadow-lg">
+        ★ Populaire
+      </span>
+    </div>
+  {% endif %}
+
+  <div class="mb-6">
+    {% if title %}
+      <h3 class="text-xl font-bold mb-2">{{ title }}</h3>
+    {% endif %}
+    {% if description %}
+      <p class="text-sm {% if featured == 'true' %}text-gray-400{% else %}text-gray-500{% endif %}">
+        {{ description }}
+      </p>
+    {% endif %}
+  </div>
+
+  <div class="mb-8">
+    {% if price %}
+      <div class="flex items-baseline gap-1">
+        <span class="text-4xl font-extrabold tracking-tight">{{ price }}</span>
+        {% if period %}
+          <span class="text-sm {% if featured == 'true' %}text-gray-400{% else %}text-gray-500{% endif %}">
+            / {{ period }}
+          </span>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if features %}
+    <ul class="space-y-3 mb-8 flex-1">
+      {{ features }}
+    </ul>
+  {% endif %}
+
+  {% if cta %}
+    <div class="mt-auto">
+      {{ cta }}
+    </div>
+  {% endif %}
+</div>

@@ -1,0 +1,41 @@
+<c-vars brand="" copyright="" class="" />
+
+<footer class="border-t border-gray-200 bg-white {{ class }}" {{ attrs }}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Main footer content -->
+    <div class="py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
+
+      <!-- Brand column -->
+      <div class="md:col-span-1">
+        {% if brand %}
+          <div class="text-lg font-bold text-gray-900 mb-4">{{ brand|safe }}</div>
+        {% endif %}
+        {% if social %}
+          <div class="flex items-center gap-4 mt-4">
+            {{ social }}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Link columns -->
+      {% if columns %}
+        <div class="md:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          {{ columns }}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="py-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+      {% if copyright %}
+        <p class="text-sm text-gray-500">{{ copyright }}</p>
+      {% endif %}
+      {% if bottom %}
+        <div class="flex items-center gap-6 text-sm text-gray-500">
+          {{ bottom }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</footer>

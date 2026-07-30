@@ -1,0 +1,62 @@
+<c-vars title="" subtitle="" align="center" bg_class="bg-white" class="" />
+
+<section class="relative min-h-screen flex items-center overflow-hidden {{ bg_class }} {{ class }}"
+         {{ attrs }}>
+
+  {% if align == "left" %}
+    <!-- Left-aligned layout with optional media -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-8">
+          {% if title %}
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+              {{ title|safe }}
+            </h1>
+          {% endif %}
+          {% if subtitle %}
+            <p class="text-lg sm:text-xl text-gray-600 max-w-xl leading-relaxed">
+              {{ subtitle|safe }}
+            </p>
+          {% endif %}
+          {% if slot %}
+            <div class="flex flex-wrap items-center gap-4">
+              {{ slot }}
+            </div>
+          {% endif %}
+        </div>
+        {% if media %}
+          <div class="relative">
+            {{ media }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+  {% else %}
+    <!-- Center-aligned layout -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-24 text-center">
+      <div class="space-y-8">
+        {% if title %}
+          <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-tight">
+            {{ title|safe }}
+          </h1>
+        {% endif %}
+        {% if subtitle %}
+          <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            {{ subtitle|safe }}
+          </p>
+        {% endif %}
+        {% if slot %}
+          <div class="flex flex-wrap items-center justify-center gap-4">
+            {{ slot }}
+          </div>
+        {% endif %}
+        {% if media %}
+          <div class="mt-12 relative">
+            {{ media }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</section>
